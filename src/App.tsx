@@ -50,7 +50,7 @@ const App: FC = () => {
     return (
         <div className={"App " + theme}>
             <div className="flex flex-row justify-between items-center mx-6 my-2">
-                <div onClick={changeTheme} className="logo"></div>
+                <div className="logo"></div>
                 <Switch 
                     onChange={changeTheme} 
                     checked={theme === 'dark'}
@@ -86,13 +86,13 @@ const App: FC = () => {
                                 ))
                                 .concat(
                                     Array(5 - recommendations.length)
-                                        .fill(0)
-                                        .map((_, i) => (
-                                            <div
-                                                key={i}
-                                                className="2xl:w-72 2xl:h-60 xl:w-56 w-40 xl:h-36 mb-3 rounded-2xl"
-                                            ></div>
-                                        ))
+                                    .fill(0)
+                                    .map((_, i) => (
+                                        <div
+                                            key={i}
+                                            className="2xl:w-72 2xl:h-60 xl:w-56 w-40 xl:h-36 mb-3 rounded-2xl"
+                                        ></div>
+                                    ))
                                 )}
                         </div>
                     </div>
