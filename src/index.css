@@ -1,13 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.App {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.App.light {
+  background: linear-gradient(to bottom, #fff,  #6b4799 200%) no-repeat ;
+}
+
+.App.dark {
+  background: linear-gradient(to bottom, #222 50%, #2d1f41 200%) no-repeat ;
+}
+
+.logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 90px;
+  height: 60px;
+  margin-left: 2rem;
+  margin-top: .5rem;
+}
+
+.bg-gray {
+  background-color: #33333300;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.bg-gray span, .bg-gray p {
+  color:  transparent;
+  transition: color 0.2s ease-in-out;
+}
+
+.bg-gray:hover {
+  background-color: #333333CC;
+}
+
+.bg-gray:hover span {
+  color: #fff;
+}
+
+.bg-gray:hover .text-spotify {
+  color: #1db954;
+}
+
+.light .logo {
+  background-image: url(./assets/svg/Logo-light.svg) !important;
+}
+
+.dark .logo {
+  background-image: url(./assets/svg/Logo.svg) !important;
+}
+
+.bg-regen {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.light .bg-regen {
+  background-color: #2d1f41;
+}
+
+.light .bg-regen:hover {
+  background-color: #352c36;
+}
+
+.dark .bg-regen {
+  background-color: #6b4799;
+}
+
+.dark .bg-regen:hover {
+  background-color: #7c5ba6;
+}
+
+.light .text-ifyl {
+  color: #352c36;
+}
+
+.dark .text-ifyl {
+  color: #fff;
+}
+
+.light .bg-input {
+  background-color: #fff;
+}
+
+.dark .bg-input {
+  background-color: #3f3f3f;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+.min-h-12 {
+  min-height: 3.5rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
