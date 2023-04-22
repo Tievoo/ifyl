@@ -51,7 +51,7 @@ const App: FC = () => {
                           <span className="text-ifyl text-left font-semibold text-2xl fade-in">You may like...</span>
                           {!loading && <button className="text-ifyl font-semibold 2xl:text-xl xl:text-lg fade-in bg-regen p-3 rounded-xl" onClick={() => getRecommendations()}>Re-generate</button>}
                         </div>
-                        <div className="flex flex-row justify-center items-center 2xl:gap-8 xl:gap-3">
+                        <div className="grid grid-cols-2 xl:grid-cols-5 justify-center items-center 2xl:gap-8 xl:gap-3 song-grid">
                             {recommendations
                                 .map((track, i) => (
                                     <TrackComponent
@@ -65,7 +65,7 @@ const App: FC = () => {
                                         .map((_, i) => (
                                             <div
                                                 key={i}
-                                                className="2xl:w-72 2xl:h-60 xl:w-56 xl:h-36 mb-3 rounded-2xl"
+                                                className="2xl:w-72 2xl:h-60 xl:w-56 w-40 xl:h-36 mb-3 rounded-2xl"
                                             ></div>
                                         ))
                                 )}

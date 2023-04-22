@@ -42,8 +42,8 @@ const Searchbar: FC<SearchBarProps> = ({ pickedTrack, setPickedTrack }) => {
     }, [search, pickedTrack]);
 
     return (
-        <div className="flex flex-col justify-center items-center gap-3 w-1/2">
-            <span className="text-ifyl text-left w-full font-semibold text-2xl">
+        <div className="flex flex-col justify-center items-center gap-3 w-5/6 xl:w-1/2 mt-6 xl:m-0">
+            <span className="text-ifyl text-left w-full font-semibold text-2xl ">
                 If you liked...
             </span>
             <div className="relative w-full">
