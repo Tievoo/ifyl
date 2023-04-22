@@ -14,6 +14,10 @@ body {
   flex-direction: column;
 }
 
+* {
+  transition: color 0.2s ease-in-out;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -42,8 +46,6 @@ body {
   background-position: center;
   width: 90px;
   height: 60px;
-  margin-left: 2rem;
-  margin-top: .5rem;
 }
 
 .bg-gray {
@@ -81,11 +83,11 @@ body {
 }
 
 .light .bg-regen {
-  background-color: #2d1f41;
+  background-color: #c2ace2;
 }
 
 .light .bg-regen:hover {
-  background-color: #352c36;
+  background-color: #f6e6f8;
 }
 
 .dark .bg-regen {
@@ -102,6 +104,10 @@ body {
 
 .dark .text-ifyl {
   color: #fff;
+}
+
+.bg-input {
+  transition: background-color 0.2s ease-in-out;
 }
 
 .light .bg-input {

@@ -3,14 +3,26 @@ import Searchbar from "./components/Searchbar";
 import { Track } from "./app.interfaces";
 import TrackComponent from "./components/TrackComponent";
 import { ApiService } from "./service/api.service";
+import Switch from "react-switch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const App: FC = () => {
     const apiService = ApiService.getInstance();
+    const lsTheme = localStorage.getItem("theme"); 
+
     const [pickedTrack, setPickedTrack] = useState<Track | null>(null);
+    const [theme, setTheme] = useState<string>(lsTheme || 'light');
     const [recommendations, setRecommendations] = useState<Track[] | null>(
         null
     );
     const [loading, setLoading] = useState<boolean>(false);
+
+    function changeTheme() {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem("darkMode", newTheme);
+    }
 
     async function getRecommendations() {
         if (pickedTrack && !loading) {
@@ -28,6 +40,7 @@ const App: FC = () => {
                 setRecommendations([...toAdd]);
             }, 1000);
         }
+        if (!pickedTrack) setRecommendations(null);
     }
 
     useEffect(() => {
@@ -35,8 +48,20 @@ const App: FC = () => {
     }, [pickedTrack]);
 
     return (
-        <div className="App dark">
-            <div className="logo"></div>
+        <div className={"App " + theme}>
+            <div className="flex flex-row justify-between items-center mx-6 my-2">
+                <div onClick={changeTheme} className="logo"></div>
+                <Switch 
+                    onChange={changeTheme} 
+                    checked={theme === 'dark'}
+                    checkedIcon={false}
+                    uncheckedIcon={false}
+                    checkedHandleIcon={<FontAwesomeIcon icon={faMoon} width={26} height={26}/>}
+                    uncheckedHandleIcon={<FontAwesomeIcon icon={faSun} width={26} height={26}/>}
+                    onColor="#E6E6FA"
+                    offColor="#352c36"
+                />
+            </div>
             <div className="flex flex-col justify-center items-center">
                 <Searchbar
                     pickedTrack={pickedTrack}
